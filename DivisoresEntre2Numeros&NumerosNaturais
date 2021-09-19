@@ -1,0 +1,47 @@
+ 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>N1 & N2 com Naturais</title>
+    </head>
+    <body>
+        
+        <form method='get'>
+
+            < CÁLCULO DE NATURAIS E DIVISÍVEIS > <input type="hidden" name="texto"/> <br /><br />
+            
+            A aplicação deve verificar todos os números naturais até N1 e mostrar todos os que são divisíveis por N2. <input type="hidden" name="texto"/> <br /><br />
+
+            Digite o primeiro número: <input name="n1" /> <br />
+            Digite o segundo número: <input name="n2" /> <br />
+            
+            <input type="hidden" name="divisiveis" />
+            <br />
+            <input type="submit" value="Verificar">
+            <br />
+            <br />
+        </form>
+        <?php
+            
+            if(isset($_GET['divisiveis'])) {
+
+                $numero1 = $_GET ['n1'];
+                $numero2 = $_GET ['n2'];  
+                
+                echo " Resultado: ";
+                
+                for($i = 1; $i <= $numero1; $i++){
+                    if($i % $numero2 == 0){
+                        
+                        echo $i . " - ";
+                        
+                    }
+                    
+                }
+                
+            }
+        ?>
+        
+    </body>
+</html>
