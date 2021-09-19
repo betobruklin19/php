@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cálculo de Média do Aluno</title>
+    </head>
+    <body>
+        
+        <form method='post'>
+
+            Cálculo de Médio do Aluno: <input type="hidden" name="texto" /> <br /><br />
+
+            Digite a Primeira Nota: <input name="nota1" /> <br />
+            Digite a Segunda Nota: <input name="nota2" /> <br />
+            Digite a Terceira Nota: <input name="nota3" /> <br />
+            <input type="hidden" name="form_cadastro" />
+            <br />
+            <input type="submit" value="Calcular a Média">
+
+        </form>
+        <?php
+                
+            if(isset($_POST['form_cadastro'])) {
+                $nota1 = $_POST['nota1'];
+                $nota2 = $_POST['nota2'];
+                $nota3 = $_POST['nota3'];
+            
+                $media = ($nota1 + $nota2 + $nota3) / 3;
+
+                echo "<hr> MÉDIA: " . number_format($media, 2) . "<br>"; 
+
+                if($media >= 7){
+                    echo ("SITUAÇÃO DO ALUNO: Aprovado. ");
+                    echo ("Parabéns!!!");    
+                
+                } else if ($media >=4){
+                    echo("SITUAÇÃO DO ALUNO: Recuperação.");
+                } else {
+                    echo("SITUAÇÃO DO ALUNO: Reprovado. ");
+                    echo("(Não desista, tente outra vez! :] )");
+                }
+               
+            }
+        ?>
+        
+
+    </body>
+</html>
