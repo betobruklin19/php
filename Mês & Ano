@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Meses</title>
+    </head>
+    <body>
+        
+        <form method='get'>
+
+            < MESES DO ANO > <input type="hidden" name="texto"/> <br /><br />
+            
+            A aplicação verificará se o número digitado corresponde ao mês do ano referente a ele. <input type="hidden" name="texto"/> <br /><br />
+
+            Digite um número (de 1 a 12): <input name="numero" /> <br />
+            Digite um mês do Ano (Janeiro a Dezembro): <input name="meses" /> <br />
+            
+            <input type="hidden" name="mes_ano" />
+            <br />
+            <input type="submit" value="Verificar">
+
+        </form>
+        <?php
+                if(isset($_GET['mes_ano'])) {
+
+                $numeral = $_GET ['numero'];
+                $meses = $_GET ['meses'];    
+                
+                $numeral = intval ($numeral);
+                $meses = trim (strtolower ($meses));
+
+                $mesesDoAno = ["janeiro", 'fevereiro', 'março', 'abril', 
+                                'maio', 'junho', 'julho', 'agosto', 
+                                'setembro', 'outubro', 'novembro', 'dezembro'];    
+
+                if (in_array($meses, $mesesDoAno)){
+                    
+                    if ($mesesDoAno [$numeral - 1] === $meses){
+                        echo "O número digitado CORRESPONDE exatamente ao mês do ano informado.";
+                    } else {
+                        echo "O número digitado NÃO CORRESPONDE ao mês do ano informado.";
+                } 
+            }
+        }
+        ?>
+        
+    </body>
+</html>
